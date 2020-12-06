@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "find-property-ui"
+    }
+  },
+  "defaultProject": "find-property-ui",
+  "cli": {
+    "analytics": "58911d14-0de7-4b66-a8ac-5fc23c4b9d7c"
+  }
 }
