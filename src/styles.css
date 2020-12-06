@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --content-background: whitesmoke;
+    --text-color-gray-5: rgba(255, 255, 255, 0.5);
+    --color-nav-item: #BBC3C7;
+    --color-nav-left: #0492d0;
+    --color-top-nav: #d3d3d3;
+    --color-text: dimgray;
+    --color-search-number: #32CD32;
+}
