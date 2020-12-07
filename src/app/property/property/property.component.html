@@ -1,5 +1,8 @@
 <p>property works!</p>
 
 <div *ngFor="let property of properties$ | async">
-    <div>{{property.name}}</div>
+    <div>{{property.title}}</div>
+    <!-- <ng-container *ngFor="let photo of property.photos">
+        <img alt="image" [src]="photo.url">
+    </ng-container> -->
 </div>
