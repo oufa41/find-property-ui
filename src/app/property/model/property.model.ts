@@ -4,15 +4,15 @@ import { Amenities } from '../model/amenities.model';
 import { Address } from '../model/address.model';
 export class Property {
     address: Address;
-    agent: Agent;
-    amenities: Amenities;
+    agent?: Agent;
+    amenities?: Amenities;
     id: number;
     numberBathrooms: number;
     numberBedrooms: number;
     photos: Array<Photo>;
     price: number;
     sellingType: SellingType;
-    size: number;
+    size?: number;
     title: string;
 }
 

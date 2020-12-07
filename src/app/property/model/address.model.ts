@@ -1,10 +1,10 @@
 export class Address {
     city: string;
     country: string;
-    flatNumber: number;
-    houseNumber: number;
+    flatNumber?: number;
+    houseNumber?: number;
     latitude: number;
     longitude: number;
-    streetName: string;
+    streetName?: string;
     town: string;
 }
