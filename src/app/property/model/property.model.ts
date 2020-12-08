@@ -11,7 +11,7 @@ export class Property {
     numberBedrooms: number;
     photos: Array<Photo>;
     price: number;
-    sellingType: SellingType;
+    sellingType: string;
     size?: number;
     title: string;
 }
