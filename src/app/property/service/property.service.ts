@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Property } from 'src/app/property/model/property.model';
 import { API } from 'src/app/constants/api-url';
+import { shareReplay } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,11 +12,11 @@ export class PropertyService {
   constructor(private httpClient: HttpClient) { }
 
   getAllProperties(): Observable<Property[]> {
-    return this.httpClient.get<Property[]>(API.PROPERTY_URL);
+    return this.httpClient.get<Property[]>(API.PROPERTY_URL).pipe(shareReplay());
   }
 
   getPropertyById(id: number): Observable<Property>{
-    return this.httpClient.get<Property>(API.PROPERTY_URL + `${id}`);
+    return this.httpClient.get<Property>(API.PROPERTY_URL + `${id}`).pipe(shareReplay());
   }
 
   postProperty(property: Property): Observable<Property>{

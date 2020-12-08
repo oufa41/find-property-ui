@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
+import { PropertyComponent } from 'src/app/property/property/property.component';
+import {PropertyDetailsComponent} from 'src/app/property/property-details/property-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    PropertyComponent,
+    PropertyDetailsComponent
   ],
   imports: [
     BrowserModule,
