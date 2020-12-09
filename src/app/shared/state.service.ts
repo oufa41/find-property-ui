@@ -19,7 +19,7 @@ export class StateService<T> {
       distinctUntilChanged()
     );
   }
-  protected set State(newState: Partial<T>) {
+  protected updateState(newState: Partial<T>): void {
     this.state$.next({
       ...this.state,
       ...newState,

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Property } from '../property/model/property.model';
 import { PropertyService } from '../property/service/property.service';
 import { Routing } from 'src/app/constants/routing-url';
-import { PropertyHttpParams } from '../property/service/data/property-http-params';
+import { PropertyParams } from '../property/service/data/property-params';
 import { switchMap } from 'rxjs/operators';
 import { ThrowStmt } from '@angular/compiler';
 
@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit {
 
   SELECT_FORM_SELLINGTYPE_DEFAULT_VALUE = 'Select Selling Type';
   advancedSearchForm: FormGroup;
-  filterPropertyParams: PropertyHttpParams = new PropertyHttpParams();
+  filterPropertyParams: PropertyParams = new PropertyParams();
   searchResult$: Observable<Property[]>;
 
   constructor(
@@ -46,7 +46,7 @@ export class SearchComponent implements OnInit {
     this.searchParams$ = this.activatedRoute.queryParams;
     this.searchResult$ = this.searchParams$.pipe(
       switchMap(params => {
-        return this.propertyService.getAllProperties(params as PropertyHttpParams);
+        return this.propertyService.getAllProperties(params as PropertyParams);
       })
     );
   }
@@ -57,11 +57,11 @@ export class SearchComponent implements OnInit {
       sellingType: [''],
     });
   }
-  onSearch(value: PropertyHttpParams): void {
+  onSearch(value: PropertyParams): void {
     this.filterPropertyParams = value;
     this.updateSearch(this.filterPropertyParams);
   }
-  updateSearch(params: Partial<PropertyHttpParams>): void {
+  updateSearch(params: Partial<PropertyParams>): void {
     this.searchResult$ = this.propertyService.getAllProperties(this.filterPropertyParams);
     this.router.navigate(['.'], {
       queryParams: params,
