@@ -9,7 +9,7 @@
                             <input type="text" class="form-control search-slt" placeholder="Enter Address" formControlName="address">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="Enter City" formControlName="city">
+                            <input type="text" class="form-control search-slt" placeholder="Enter City">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                             <select class="form-control search-slt" id="exampleFormControlSelect1" formControlName="sellingType">
@@ -30,6 +30,6 @@
 </section>
 
 <ng-container *ngIf="(searchResult$ | async) as properties">
-    <app-property routerLink="/properties/list" [properties$]="searchResult$"></app-property>
+    <app-property [properties$]="searchResult$"></app-property>
 
 </ng-container>

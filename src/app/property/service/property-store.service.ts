@@ -12,7 +12,6 @@ export class PropertyStoreService {
   private subject = new BehaviorSubject<Property[]>([]);
   properties$: Observable<Property[]> = this.subject.asObservable();
   constructor(private propertyService: PropertyService) {
-    console.log('constructor');
     this.storeProperties().subscribe();
   }
 

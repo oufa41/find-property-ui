@@ -13,7 +13,6 @@ export class PropertyService {
   constructor(private httpClient: HttpClient) { }
 
   getAllProperties(parameters?: PropertyHttpParams): Observable<Property[]> {
-
     return this.httpClient.get<Property[]>(API.PROPERTY_URL, { params: this.getHttpParams(parameters) }).pipe(shareReplay());
   }
 
@@ -41,9 +40,7 @@ export class PropertyService {
     if (parameters) {
       params = (parameters.sellingType && parameters.sellingType !== '') ? params.append('type', parameters.sellingType) : params.delete('type');
       params = parameters.address ? params.append('address', parameters.address) : params;
-      console.log(parameters.sellingType);
     }
-
     return params;
   }
 }
