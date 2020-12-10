@@ -8,6 +8,7 @@ import { Routing } from 'src/app/constants/routing-url';
 import { PropertyParams } from '../property/service/data/property-params';
 import { switchMap } from 'rxjs/operators';
 import { ThrowStmt } from '@angular/compiler';
+import { PropertyStoreService } from '../property/service/property-store.service';
 
 export interface SearchParams {
   department: string;
@@ -37,8 +38,10 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('search component');
     this.initForm();
     this.getRoutingSearchParams();
+    this.searchResult$ = this.propertyService.getAllProperties();
   }
 
 

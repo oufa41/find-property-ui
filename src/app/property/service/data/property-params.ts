@@ -6,8 +6,8 @@ export class PropertyParams {
         this.address = '';
         this.sellingType = '';
     }
-    isAllEmpty(): boolean {
-        if (this.address === '' && this.sellingType === '') { return true; }
-        return false;
-    }
+    // isAllEmpty(): boolean {
+    //     if (this.address === '' && this.sellingType === '') { return true; }
+    //     return false;
+    // }
 }

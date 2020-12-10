@@ -21,6 +21,7 @@ export class PropertyService {
   }
 
   getPropertyById(id: number): Observable<Property> {
+    console.log(id);
     return this.httpClient.get<Property>(API.PROPERTY_URL + `${id}`).pipe(shareReplay());
   }
 

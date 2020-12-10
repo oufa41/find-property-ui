@@ -22,8 +22,12 @@ const initialState: PropertyState = {
 })
 export class PropertyStoreService extends StateService<PropertyState> {
 
+  propertiesFiltered$: Observable<Property[]> = this.select((state) => {
+    return this.getPropertiesFiltered(state.properties, state.filter);
+  });
+
   filter$: Observable<PropertyParams> = this.select((state) => state.filter);
-  selectedTodo$: Observable<Property> = this.select((state) => {
+  selectedProperty$: Observable<Property> = this.select((state) => {
     if (state.selectedPropertyId === 0) {
       return new Property();
     }
@@ -37,6 +41,26 @@ export class PropertyStoreService extends StateService<PropertyState> {
     this.load();
   }
 
+  selectProperty(property: Property): void {
+    this.updateState({ selectedPropertyId: property.id });
+  }
+
+  // initNewTodo() {
+  //   this.setState({ selectedTodoId: 0 });
+  // }
+
+  // clearSelectedTodo() {
+  //   this.up({ selectedTodoId: undefined });
+  // }
+
+  updateFilter(filter: PropertyParams): void {
+    this.updateState({
+      filter: {
+        ...this.state.filter,
+        ...filter,
+      },
+    });
+  }
   load(): void {
     this.propertyService.getAllProperties().subscribe((properties) => this.updateState({ properties }));
   }
@@ -63,6 +87,13 @@ export class PropertyStoreService extends StateService<PropertyState> {
         selectedPropertyId: undefined,
         properties: this.state.properties.filter((item) => item.id !== property.id),
       });
+    });
+  }
+  getPropertiesFiltered(properties: Property[], filter: PropertyParams): Property[] {
+    return properties.filter((item) => {
+      return (
+        item.sellingType.toUpperCase().indexOf(filter.address.toUpperCase()) > -1
+      );
     });
   }
 }

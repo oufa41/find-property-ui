@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Property } from '../model/property.model';
 import { PropertyStoreService } from '../service/property-store.service';
+import { PropertyService } from '../service/property.service';
 
 @Component({
   selector: 'app-property-details',
@@ -10,9 +13,13 @@ import { PropertyStoreService } from '../service/property-store.service';
 })
 export class PropertyDetailsComponent implements OnInit {
 
-  constructor(private router: Router, private propertyStoreService: PropertyStoreService) { }
+  property$: Observable<Property>;
+  constructor(private activatedRoute: ActivatedRoute, private propertyService: PropertyService) { }
 
   ngOnInit(): void {
+    const propertyId = this.activatedRoute.snapshot.queryParams.id;
+    console.log(propertyId);
+    this.property$ = this.propertyService.getPropertyById(propertyId);
   }
 
 }
