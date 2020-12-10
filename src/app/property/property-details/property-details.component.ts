@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Property } from '../model/property.model';
-import { PropertyStoreService } from '../service/property-store.service';
 import { PropertyService } from '../service/property.service';
 
 @Component({
@@ -13,13 +13,17 @@ import { PropertyService } from '../service/property.service';
 })
 export class PropertyDetailsComponent implements OnInit {
 
+
   property$: Observable<Property>;
+  googleMapType = 'satellite';
+
   constructor(private activatedRoute: ActivatedRoute, private propertyService: PropertyService) { }
 
   ngOnInit(): void {
     const propertyId = this.activatedRoute.snapshot.queryParams.id;
-    console.log(propertyId);
     this.property$ = this.propertyService.getPropertyById(propertyId);
+
   }
+ 
 
 }

@@ -1,0 +1,10 @@
+.map-container {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+}
+
+mgl-map {
+    height: 100%;
+    width: 100%;
+}

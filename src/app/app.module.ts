@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { PropertyComponent } from 'src/app/property/property/property.component';
-import {PropertyDetailsComponent} from 'src/app/property/property-details/property-details.component';
+import { PropertyDetailsComponent } from 'src/app/property/property-details/property-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCn_n9EIFDBgo1zP5o6ir425AYoIfNcarY'
+    }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]
