@@ -1,22 +1,26 @@
 <ng-container *ngIf="!activePropertyDetails; else detail">
-    <ng-container *ngFor="let property of properties$ | async">
-        <div class="card  shadow-sm mb-3" (click)="openPropertyDetails(property)" style="cursor: pointer;">
-            <div class="row no-gutters">
-                <div class="col-md-3">
-                    <img width="250" height="200" alt="image" [src]="property.photos[0].url">
-                </div>
-                <div class="col-md-9">
-                    <div class="card-body">
-                        <h5 class="card-title">{{property.title}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{property.price | number:'1.0':'en-US' }} EGP <span *ngIf="property.sellingType === 'RENT'">/Month</span></h6>
-                        <p class="card-text"> <span class="card-text fa fa-map-marker"></span><span class="card-text"> {{property.address.town}}, {{property.address.city}}, {{property.address.country}}</span></p>
-                        <p class="card-text"><span class=" fa fa-bath"></span> <span>{{property.numberBathrooms}} </span> <span class=" fa fa-bed"></span> <span>{{property.numberBedrooms}} </span></p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <ng-container *ngIf="(properties$ | async) as properties">
+        <virtual-scroller #scroll [items]="properties" [bufferAmount]="4">
+            <ng-container *ngFor="let property of scroll.viewPortItems; let i =index">
+                <div class="card  shadow-sm mb-3" style="display: block; height: 100%;" (click)="openPropertyDetails(property)" style="cursor: pointer;">
+                    <div class="row no-gutters">
+                        <div class="col-md-3">
+                            <img width="250" height="200" alt="image" [src]="property.photos[0].url">
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-body">
+                                <h5 class="card-title">{{property.title}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{property.price | number:'1.0':'en-US' }} EGP <span *ngIf="property.sellingType === 'RENT'">/Month</span></h6>
+                                <p class="card-text"> <span class="card-text fa fa-map-marker"></span><span class="card-text"> {{property.address.town}}, {{property.address.city}}, {{property.address.country}}</span></p>
+                                <p class="card-text"><span class=" fa fa-bath"></span> <span>{{property.numberBathrooms}} </span> <span class=" fa fa-bed"></span> <span>{{property.numberBedrooms}} </span></p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </ng-container>
+        </virtual-scroller>
     </ng-container>
 </ng-container>
 <ng-template #detail>

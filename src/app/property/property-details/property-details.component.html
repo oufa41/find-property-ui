@@ -26,7 +26,7 @@
         </div>
         <div id="map-col" class="col col-6">
 
-            <agm-map style="height: 70vh;" [mapTypeId]='googleMapType'>
+            <agm-map style="height: 70vh;" [zoom]='17' [latitude]="property.address.latitude" [longitude]="property.address.longitude" [mapTypeId]='googleMapType'>
                 <agm-marker [latitude]="property.address.latitude" [longitude]="property.address.longitude">
 
                     <agm-info-window>

@@ -24,6 +24,6 @@ export class PropertyDetailsComponent implements OnInit {
     this.property$ = this.propertyService.getPropertyById(propertyId);
 
   }
- 
+
 
 }
