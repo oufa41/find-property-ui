@@ -10,6 +10,10 @@ import { PropertyDetailsComponent } from 'src/app/property/property-details/prop
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { VirtualScrollerModule } from 'ngx-virtual-scroller';
+import { MapComponent } from './property/property-details/map/map.component';
+import { PhotosComponent } from './property/property-details/photos/photos.component';
+import { AgentComponent } from './property/property-details/agent/agent.component';
+import { AmenitiesComponent } from './property/property-details/amenities/amenities.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +21,10 @@ import { VirtualScrollerModule } from 'ngx-virtual-scroller';
     SearchComponent,
     PropertyComponent,
     PropertyDetailsComponent,
+    MapComponent,
+    PhotosComponent,
+    AgentComponent,
+    AmenitiesComponent,
   ],
   imports: [
     BrowserModule,

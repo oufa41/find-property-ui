@@ -15,15 +15,15 @@ export class PropertyDetailsComponent implements OnInit {
 
 
   property$: Observable<Property>;
-  googleMapType = 'satellite';
-
   constructor(private activatedRoute: ActivatedRoute, private propertyService: PropertyService) { }
 
   ngOnInit(): void {
-    console.log('details');
+    this.getPropertyById();
+  }
+
+  getPropertyById(): void {
     const propertyId = this.activatedRoute.snapshot.params.propertyId;
     this.property$ = this.propertyService.getPropertyById(propertyId);
-
   }
 
 

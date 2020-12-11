@@ -1,0 +1,21 @@
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="max-height:500px; max-width: 500px;">
+    <div class="carousel-inner">
+        <ng-container *ngFor="let photo of photos; let i = index">
+            <div class="carousel-item active" *ngIf='i==0'>
+                <img class="img-responsive" [src]="photo.url" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" *ngIf='i>0'>
+                <img class="img-responsive" [src]="photo.url" class="d-block w-100" alt="...">
+            </div>
+        </ng-container>
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>

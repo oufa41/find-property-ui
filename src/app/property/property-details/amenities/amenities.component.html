@@ -1,0 +1,25 @@
+<p></p>
+<div class="card" style="width: 18rem;" style="display: block;">
+    <div class="card-header">
+        Amenities
+    </div>
+    <div class="card-body">
+        <div>
+            <i [ngClass]="(amenities.isFurnitured)?'fa fa-fw  fa-check-circle text-success':'fa fa-fw  fa-times-circle text-danger'">
+            </i> Furnitured
+        </div>
+        <div>
+            <i [ngClass]="(amenities.hasBalcony)?'fa fa-fw  fa-check-circle text-success':'fa fa-fw  fa-times-circle text-danger'">
+            </i> Balcony
+        </div>
+        <div>
+            <i [ngClass]="(amenities.hasParking)?'fa fa-fw  fa-check-circle text-success':'fa fa-fw  fa-times-circle text-danger'">
+            </i> Parking
+        </div>
+        <div>
+            <i [ngClass]="(amenities.hasSecurity)?'fa fa-fw  fa-check-circle text-success':'fa fa-fw  fa-times-circle text-danger'">
+            </i> Security
+        </div>
+
+    </div>
+</div>
