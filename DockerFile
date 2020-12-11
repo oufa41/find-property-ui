@@ -1,0 +1,12 @@
+#stage 1 adding node and copying all files
+FROM node:latest AS build-image
+
+COPY package*.json /user/app/ui/
+WORKDIR /user/app/ui
+RUN npm install
+COPY . /user/app/ui/
+RUN npm run build --prod
+
+#stage 2 adding to nginx
+FROM nginx:stable
+COPY --from=build-image /user/app/ui/dist/find-property-ui /usr/share/nginx/html

@@ -17,7 +17,7 @@ export class PropertyComponent implements OnInit, OnChanges{
 
   properties$: Observable<Property[]>;
 
-  @Input() filterParams: PropertyParams;
+  filterParams: PropertyParams;
 
   searchParams$: Observable<Params>;
   activePropertyDetails: Property;
@@ -28,36 +28,32 @@ export class PropertyComponent implements OnInit, OnChanges{
     private propertyService: PropertyService) { }
 
   ngOnInit(): void {
-    console.log('list component');
     this.getRoutingSearchParams();
   }
   ngOnChanges(): void {
-    this.updateSearch(this.filterParams);
+    // this.updateSearch(this.filterParams);
 
   }
 
 
   getRoutingSearchParams(): void {
     this.searchParams$ = this.activatedRoute.queryParams;
-    console.log(this.searchParams$);
     this.properties$ = this.searchParams$.pipe(
       switchMap(params => {
-        console.log(params);
         return this.propertyService.getAllProperties(params as PropertyParams);
       })
     );
   }
-  updateSearch(params: Partial<PropertyParams>): void {
-    this.properties$ = this.propertyService.getAllProperties(this.filterParams);
-    this.router.navigate(['/properties/list'], {
-      queryParams: params,
-      queryParamsHandling: 'merge'
-    });
+  // updateSearch(params: Partial<PropertyParams>): void {
+  //   this.properties$ = this.propertyService.getAllProperties(this.filterParams);
+  //   this.router.navigate(['/properties/list'], {
+  //     queryParams: params,
+  //     queryParamsHandling: 'merge'
+  //   });
 
-  }
+  // }
   openPropertyDetails(property: Property): void {
     this.activePropertyDetails = property;
-    console.log(property.id);
     this.router.navigate(['/properties/details', property.id], {
       queryParamsHandling: 'merge'
     });

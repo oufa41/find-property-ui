@@ -53,6 +53,14 @@ export class SearchComponent implements OnInit {
   }
   onSearch(value: PropertyParams): void {
     this.filterPropertyParams = value;
+    this.updateSearch(this.filterPropertyParams);
   }
 
+  updateSearch(params: Partial<PropertyParams>): void {
+    this.router.navigate(['/properties/list'], {
+      queryParams: params,
+      queryParamsHandling: 'merge'
+    });
+
+  }
 }

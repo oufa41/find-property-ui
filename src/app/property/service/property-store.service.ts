@@ -45,14 +45,6 @@ export class PropertyStoreService extends StateService<PropertyState> {
     this.updateState({ selectedPropertyId: property.id });
   }
 
-  // initNewTodo() {
-  //   this.setState({ selectedTodoId: 0 });
-  // }
-
-  // clearSelectedTodo() {
-  //   this.up({ selectedTodoId: undefined });
-  // }
-
   updateFilter(filter: PropertyParams): void {
     this.updateState({
       filter: {
