@@ -40,19 +40,10 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     console.log('search component');
     this.initForm();
-    this.getRoutingSearchParams();
-    this.searchResult$ = this.propertyService.getAllProperties();
+    this.router.navigate([Routing.PROPERTY_LIST_URL]);
   }
 
 
-  getRoutingSearchParams(): void {
-    this.searchParams$ = this.activatedRoute.queryParams;
-    this.searchResult$ = this.searchParams$.pipe(
-      switchMap(params => {
-        return this.propertyService.getAllProperties(params as PropertyParams);
-      })
-    );
-  }
 
   initForm(): void {
     this.advancedSearchForm = this.formBuilder.group({
@@ -62,14 +53,6 @@ export class SearchComponent implements OnInit {
   }
   onSearch(value: PropertyParams): void {
     this.filterPropertyParams = value;
-    this.updateSearch(this.filterPropertyParams);
   }
-  updateSearch(params: Partial<PropertyParams>): void {
-    this.searchResult$ = this.propertyService.getAllProperties(this.filterPropertyParams);
-    this.router.navigate(['.'], {
-      queryParams: params,
-      queryParamsHandling: 'merge'
-    });
 
-  }
 }

@@ -29,6 +29,5 @@
     </div>
 </section>
 
-<ng-container *ngIf="(searchResult$ | async) as properties">
-    <app-property [properties$]="searchResult$"></app-property>
-</ng-container>
+
+<app-property [filterParams]="filterPropertyParams"></app-property>

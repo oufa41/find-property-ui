@@ -20,7 +20,8 @@ export class PropertyDetailsComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private propertyService: PropertyService) { }
 
   ngOnInit(): void {
-    const propertyId = this.activatedRoute.snapshot.queryParams.id;
+    console.log('details');
+    const propertyId = this.activatedRoute.snapshot.params.propertyId;
     this.property$ = this.propertyService.getPropertyById(propertyId);
 
   }
