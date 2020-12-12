@@ -1,5 +1,5 @@
 .search-sec {
-    background: #1A4668;
+    background: var( --color-search-background);
     padding: 2rem;
 }
 
@@ -8,7 +8,7 @@
     width: 100%;
     font-size: 0.875rem;
     line-height: 1.5;
-    color: #55595c;
+    color: var(--color-select-text);
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;

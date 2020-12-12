@@ -7,4 +7,5 @@ export class Address {
     longitude: number;
     streetName?: string;
     town: string;
+
 }

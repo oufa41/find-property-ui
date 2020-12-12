@@ -6,7 +6,7 @@ import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '', pathMatch: 'full',
+    path: '', redirectTo: 'properties/list', pathMatch: 'full',
   },
   {
     path: 'properties/list', component: PropertyComponent

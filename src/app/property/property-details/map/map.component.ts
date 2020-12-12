@@ -1,16 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Address } from '../../model/address.model';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  styleUrls: ['./map.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MapComponent implements OnInit {
 
 
-  @Input() latitude: number;
-  @Input() longitude: number;
-  @Input() markerTitle: string;
+  @Input() address: Address;
+
 
   googleMapType = 'satellite';
   constructor() { }

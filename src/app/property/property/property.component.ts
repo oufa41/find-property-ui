@@ -13,7 +13,7 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./property.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PropertyComponent implements OnInit, OnChanges{
+export class PropertyComponent implements OnInit, OnChanges {
 
   properties$: Observable<Property[]>;
 
@@ -28,6 +28,7 @@ export class PropertyComponent implements OnInit, OnChanges{
     private propertyService: PropertyService) { }
 
   ngOnInit(): void {
+    console.log('list component');
     this.getRoutingSearchParams();
   }
   ngOnChanges(): void {
@@ -44,14 +45,7 @@ export class PropertyComponent implements OnInit, OnChanges{
       })
     );
   }
-  // updateSearch(params: Partial<PropertyParams>): void {
-  //   this.properties$ = this.propertyService.getAllProperties(this.filterParams);
-  //   this.router.navigate(['/properties/list'], {
-  //     queryParams: params,
-  //     queryParamsHandling: 'merge'
-  //   });
 
-  // }
   openPropertyDetails(property: Property): void {
     this.activePropertyDetails = property;
     this.router.navigate(['/properties/details', property.id], {

@@ -1,8 +1,8 @@
-<agm-map [zoom]='17' [latitude]="latitude" [longitude]="longitude" [mapTypeId]='googleMapType'>
-    <agm-marker [latitude]="latitude" [longitude]="longitude">
+<agm-map [zoom]='17' [latitude]="address.latitude" [longitude]="address.longitude" [mapTypeId]='googleMapType'>
+    <agm-marker [latitude]="address.latitude" [longitude]="address.longitude">
 
         <agm-info-window>
-            <strong>{{markerTitle}}</strong>
+            <strong>{{address.streetName}}, {{address.town}}, {{address.city}}, {{address.country}}</strong>
         </agm-info-window>
 
     </agm-marker>

@@ -30,7 +30,6 @@ export class SearchComponent implements OnInit {
   searchResult$: Observable<Property[]>;
 
   constructor(
-    private propertyService: PropertyService,
     private formBuilder: FormBuilder,
     private router: Router,
     private activatedRoute: ActivatedRoute) {
@@ -40,7 +39,6 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     console.log('search component');
     this.initForm();
-    this.router.navigate([Routing.PROPERTY_LIST_URL]);
   }
 
 
